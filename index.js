@@ -16,7 +16,7 @@ function greetUser() {
     if (!isValidName(name)) {
       console.log('Please enter a valid name with at least 3 characters.');
     } else {
-      console.log(`Hello, ${name.trim()}!`);
+      console.log(`Hello, ${name}!`);
     }
     rl.close();
   });
