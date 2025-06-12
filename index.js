@@ -1,24 +1,27 @@
-function greetUser() {
-  const name = prompt('Please enter your name:');
+const readline = require('readline');
 
-  if (!isValidName(name)) {
-    alert('Please enter a valid name with at least 3 characters.');
-  } else {
-    showGreeting(name);
-  }
-}
-
-// function to show greeting
-function showGreeting(name) {
-  const wantsGreeting = confirm('Would you like to see a greeting?');
-  if (wantsGreeting) {
-    alert(`Hello, ${name.trim()}!`);
-  }
-}
-
-// check if the name is valid
+// Check if the name is valid
 function isValidName(name) {
-  return typeof name === 'string' && name.trim().length >= 3;
+  return typeof name === 'string' && name.trim().length >= 3 && isNaN(name);
+}
+
+// Output username
+function greetUser() {
+  const rl = readline.createInterface({
+    input: process.stdin,
+    output: process.stdout
+  });
+
+  rl.question('Enter your name: ', (name) => {
+    if (!isValidName(name)) {
+      console.log('Please enter a valid name with at least 3 characters.');
+    } else {
+      console.log(`Hello, ${name.trim()}!`);
+    }
+    rl.close();
+  });
 }
 
 greetUser();
+
+
