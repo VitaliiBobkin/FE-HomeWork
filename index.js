@@ -13,8 +13,8 @@ function generateKey(length, characters = 'abcdefghijklmnopqrstuvwxyz0123456789'
 }
 
 //function check is valid number
-function isValidNumber(length){
-  return typeof length !== 'number' || length <= 0 || !Number.isInteger(length)
+function isValidNumber(number){
+  return typeof number !== 'number' || number <= 0 || !Number.isInteger(length)
 }
 
 //function output to console a key
