@@ -1,38 +1,64 @@
 const readline = require('readline');
 
-// generate key
-function generateKey(length, characters = 'abcdefghijklmnopqrstuvwxyz0123456789') {
-
-  let result = '';
-  for (let i = 0; i < length; i += 1) {
-    const randomIndex = Math.floor(Math.random() * characters.length);
-    result += characters[randomIndex];
+//padString function, which takes 4 arguments
+const padString = (string, targetLength, padChar, padLeft = false) => {
+  if (typeof string !== 'string') {
+    return 'Error: the first argument must be a string';
   }
 
-  return result;
-}
+  if (typeof targetLength !== 'number' || isNaN(targetLength)) {
+    return 'Error: the second argument must be a number';
+  }
 
-//function check is valid number
-function isValidNumber(length){
-  return typeof length !== 'number' || length <= 0 || !Number.isInteger(length)
-}
+  if (padChar === undefined) {
+    return 'Error: missing symbol for completion';
+  }
 
-//function output to console a key
-function outputKeyToConsole() {
+  if (typeof padChar !== 'string' || padChar.length !== 1) {
+    return 'Error: symbol must be a string of length 1';
+  }
+
+  if (typeof padLeft !== 'boolean') {
+    return 'Error: the last argument must be a boolean value';
+  }
+
+  if (targetLength < string.length) {
+    return string.substring(0, targetLength);
+  }
+
+  const padLength = targetLength - string.length;
+  const padding = padChar.repeat(padLength);
+  return padLeft ? padding + string : string + padding;
+};
+
+const outputToConsolePadString = () => {
   const rl = readline.createInterface({
     input: process.stdin,
     output: process.stdout
   });
 
-  rl.question('Enter a positive number: ', (number) => {
-    if (!isValidNumber(number)) {
-      console.log('Length must be a positive integer.');
-    } else {
-      console.log(`Your key is:  ${generateKey(number)}`);
-    }
-    rl.close();
-  });
-}
+  rl.question('Enter the string to pad: ', (str) => {
+    rl.question('Enter the target length (number): ', (lengthInput) => {
+      const targetLength = Number(lengthInput);
 
-outputKeyToConsole();
+      rl.question('Enter the padding character (one char): ', (padChar) => {
+        rl.question('Pad left? (true/false): ', (padLeftInput) => {
+          const padLeft = padLeftInput.toLowerCase() === 'true';
+
+          const result = padString(str, targetLength, padChar, padLeft);
+          console.log('Result:', result);
+
+          rl.close();
+        });
+      });
+    });
+  });
+};
+
+outputToConsolePadString();
+
+
+
+
+
 
