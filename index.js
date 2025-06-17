@@ -1,27 +1,38 @@
 const readline = require('readline');
 
-// Check if the name is valid
-function isValidName(name) {
-  return typeof name === 'string' && name.trim().length >= 3 && isNaN(name);
+// generate key
+function generateKey(length, characters = 'abcdefghijklmnopqrstuvwxyz0123456789') {
+
+  let result = '';
+  for (let i = 0; i < length; i += 1) {
+    const randomIndex = Math.floor(Math.random() * characters.length);
+    result += characters[randomIndex];
+  }
+
+  return result;
 }
 
-// Output username
-function greetUser() {
+//function check is valid number
+function isValidNumber(length){
+  return typeof length !== 'number' || length <= 0 || !Number.isInteger(length)
+}
+
+//function output to console a key
+function outputKeyToConsole() {
   const rl = readline.createInterface({
     input: process.stdin,
     output: process.stdout
   });
 
-  rl.question('Enter your name: ', (name) => {
-    if (!isValidName(name)) {
-      console.log('Please enter a valid name with at least 3 characters.');
+  rl.question('Enter a positive number: ', (number) => {
+    if (!isValidNumber(number)) {
+      console.log('Length must be a positive integer.');
     } else {
-      console.log(`Hello, ${name}!`);
+      console.log(`Your key is:  ${generateKey(number)}`);
     }
     rl.close();
   });
 }
 
-greetUser();
-
+outputKeyToConsole();
 
