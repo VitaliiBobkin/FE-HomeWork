@@ -1,4 +1,4 @@
 # FE-HomeWork
 
-## Home_Work_20
-**Implemented the generateKey function**
+## Home_Work_23
+**Implement the removeElement() function to remove the item element from the array.**
