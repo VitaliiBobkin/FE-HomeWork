@@ -1,38 +1,106 @@
 const readline = require('readline');
+const PROMPTS = require('./prompts.js');
 
-const array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+const rl = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout
+});
 
-const removeElement = (array, element) => {
-  if (!Array.isArray(array) || array.length === 0) throw new Error('Array is empty or not an array');
+//TODO Need to comment two functions twoDimensionalArray() or removeCharacters()
+// or doMath() before start application to correctly perform the task of each of the functions
 
-  return array.filter(item => item !== element);
+//Function to calculate average of numbers only
+const averageNumbers = (arr) => {
+  const numericValues = arr.filter((element) => typeof element === 'number');
+  if (numericValues.length === 0) return 0;
+
+  const sum = numericValues.reduce((accumulator, currentValue) => accumulator + currentValue, 0);
+  return sum / numericValues.length;
 };
 
-// function output to console an array
-function outputValuesToConsole() {
-  const rl = readline.createInterface({
-    input: process.stdin,
-    output: process.stdout,
-  });
+const mixedArray = [1, 'aer', true, 4, 'hello', 5];
+console.log(`${PROMPTS.RESULT} ${averageNumbers(mixedArray)}`);
 
-  rl.question('Enter a positive number from 1 to 10: ', (input) => {
-    const number = Number(input);
+// Math operation function
+const doMath = () => {
 
-    if (Number.isNaN(number) || number <= 0) throw new Error('Please enter a valid number.');
+  const calculateResult = (x, y, sign) => {
+    const num1 = Number(x);
+    const num2 = Number(y);
 
-    // find min and max number in the array
-    const min = Math.min(...array);
-    const max = Math.max(...array);
+    if (Number.isNaN(num1) || Number.isNaN(num2)) throw new Error(PROMPTS.ERROR_INVALID_NUMBER);
 
-    const isValid = number >= min && number <= max;
-
-    if (!isValid) {
-      console.log(`Number ${number} is greater than some elements in the array.`);
-    } else {
-      console.log(`Result array: ${removeElement(array, number)}`);
+    switch (sign) {
+      case '+': return num1 + num2;
+      case '-': return num1 - num2;
+      case '*': return num1 * num2;
+      case '/': return num2 !== 0 ? num1 / num2 : PROMPTS.DIVISION_BY_ZERO;
+      case '%': return num2 !== 0 ? num1 % num2 : PROMPTS.DIVISION_BY_ZERO;
+      case '^': return Math.pow(num1, num2);
+      default: return PROMPTS.INVALID_OPERATOR;
     }
-    rl.close();
-  });
-}
+  };
 
-outputValuesToConsole();
+  rl.question(PROMPTS.INPUT_X_VALUE, (x) => {
+    rl.question(PROMPTS.INPUT_Y_VALUE, (y) => {
+      rl.question(PROMPTS.INPUT_SIGN_VALUE, (sign) => {
+        const result = calculateResult(x, y, sign);
+        console.log(`${PROMPTS.RESULT} ${result}`);
+        rl.close();
+      });
+    });
+  });
+};
+
+doMath()
+
+//function creates a two-dimensional array
+const twoDimensionalArray = () => {
+  rl.question(PROMPTS.ENTER_ROWS, (rowsInput) => {
+    const rows = parseInt(rowsInput, 10);
+
+    if (Number.isNaN(rows) || rows <= 0) throw new Error(PROMPTS.ERROR_ROWS);
+
+    rl.question(PROMPTS.ENTER_COLUMNS, (columnsInput) => {
+      const columns = parseInt(columnsInput, 10);
+
+      if (Number.isNaN(columns) || columns <= 0) throw new Error(PROMPTS.ERROR_COLUMNS);
+
+      const array = [];
+
+      for (let i = 0; i < rows; i++) {
+        const row = [];
+        for (let j = 0; j < columns; j++) {
+          const value = `rows: ${i} * columns: ${j}`;
+          row.push(value);
+        }
+        array.push(row);
+      }
+
+      console.log(PROMPTS.RESULT, array);
+      rl.close();
+    });
+  });
+};
+
+twoDimensionalArray();
+
+//function removes characters from a string
+const removeCharacters = () => {
+  rl.question(PROMPTS.ENTER_WORD, (inputString) => {
+    rl.question(PROMPTS.ENTER_CHARS_TO_REMOVE, (charsInput) => {
+      const charsToRemove = charsInput.split('');
+
+      const result = inputString
+        .split('')
+        .filter(char => !charsToRemove.includes(char))
+        .join('');
+
+      console.log(PROMPTS.RESULT, result);
+      rl.close();
+    });
+  });
+};
+
+removeCharacters();
+
