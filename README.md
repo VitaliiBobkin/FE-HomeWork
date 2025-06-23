@@ -1,6 +1,13 @@
 # FE-HomeWork
 
-## Home_Work_25
+## Home_Work_26
 ## Tasks Overview
 
-### 1. The function should work similarly to the array.shift method.
+### Array methods
+#### 1. indexOf
+#### 2. lastIndexOf
+#### 3. find
+#### 4. findIndex
+#### 5. includes
+#### 6. every
+#### 7. some
