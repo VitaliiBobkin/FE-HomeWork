@@ -1,80 +1,53 @@
 
-//function indexOf - to check an element in the array
-const customIndexOf =  (array, searchElement)=> {
-  for (let i = 0; i < array.length; i++) {
-    if (array[i] === searchElement) {
-      return i;
-    }
-  }
-  return -1;
-}
+const arr = [16,-37,54,-4,72,-56,47,4, -16,25,-37,46,4,-51,27,-63,4,-54,76,-4,12,-35,4,47]
 
-// function lastIndexOf - to check an element in the array from the last element
-const customLastIndexOf = (array, searchElement)=> {
-  for (let i = array.length - 1; i >= 0; i--) {
-    if (array[i] === searchElement) {
-      return i;
-    }
-  }
-  return -1;
-}
+// 1. Sum and count of positive elements
+const positiveElements = arr.filter(num => num > 0);
+const positiveSum = positiveElements.reduce((sum, num) => sum + num, 0);
+const positiveCount = positiveElements.length;
 
-// function find - to find an element in the array also returns undefined
-const customFind = (array, callback) => {
-  for (let i = 0; i < array.length; i++) {
-    if (callback(array[i], i, array)) {
-      return array[i];
-    }
-  }
-  return undefined;
-}
+// 2. Minimum element and its index
+const minElement = Math.min(...arr);
+const minIndex = arr.indexOf(minElement);
 
-// function findIndex - to find an element in the array also returns -1
-const customFindIndex = (array, callback) => {
-  for (let i = 0; i < array.length; i++) {
-    if (callback(array[i], i, array)) {
-      return i;
-    }
-  }
-  return -1;
-}
+// 3. Maximum element and its index
+const maxElement = Math.max(...arr);
+const maxIndex = arr.indexOf(maxElement);
 
-// function includes - to check an element in the array, returns true or false
-const customIncludes = (array, searchElement) => {
-  for (let i = 0; i < array.length; i++) {
-    if (array[i] === searchElement) {
-      return true;
-    }
-  }
-  return false;
-}
+// 4. Count of negative elements
+const negativeCount = arr.filter(num => num < 0).length;
 
-// function every - to check if all elements in the array are true, returns true
-const customEvery = (array, callback) => {
-  for (let i = 0; i < array.length; i++) {
-    if (!callback(array[i], i, array)) {
-      return false;
-    }
-  }
-  return true;
-}
+// 5. Count of odd positive elements
+const oddPositiveCount = arr.filter(num => num > 0 && num % 2 !== 0).length;
 
-// function some - to check if any element in the array is true, returns true
-const customSome = (array, callback) => {
-  for (let i = 0; i < array.length; i++) {
-    if (callback(array[i], i, array)) {
-      return true;
-    }
-  }
-  return false;
-}
+// 6. Count of even positive elements
+const evenPositiveCount = arr.filter(num => num > 0 && num % 2 === 0).length;
 
-const arr = [1, 2, 3, 4, 2];
+// 7. Sum of even positive elements
+const evenPositiveSum = arr
+  .filter(num => num > 0 && num % 2 === 0)
+  .reduce((sum, num) => sum + num, 0);
 
-console.log(`IndexOf: ${customIndexOf(arr, 2)}`);
-console.log(`LastIndexOf: ${customLastIndexOf(arr, 2)}`);
-console.log(`Find: ${customFind(arr, x => x > 2)}`);
-console.log(`FindIndex: ${customFindIndex(arr, x => x > 2)}`);
-console.log(`Includes 5: ${customIncludes(arr, 5)}`);
-console.log(`Every > 0: ${customEvery(arr, x => x > 0)}`);
-console.log(`Some > 3: ${customSome(arr, x => x > 3)}`);
+// 8. Sum of odd positive elements
+const oddPositiveSum = arr
+  .filter(num => num > 0 && num % 2 !== 0)
+  .reduce((sum, num) => sum + num, 0);
+
+// 9. Product of positive elements
+const positiveProduct = positiveElements.reduce((product, num) => product * num, 1);
+
+// 10. Set all elements to 0 except the largest one
+const onlyMaxArray = arr.map(num => (num === maxElement ? num : 0));
+
+// Output
+console.log(`Sum of positive elements: ${positiveSum}`);
+console.log(`Count of positive elements: ${positiveCount}`);
+console.log(`Minimum element: ${minElement}, index: ${minIndex}`);
+console.log(`Maximum element: ${maxElement}, index: ${maxIndex}`);
+console.log(`Count of negative elements: ${negativeCount}`);
+console.log(`Count of odd positive elements: ${oddPositiveCount}`);
+console.log(`Count of even positive elements: ${evenPositiveCount}`);
+console.log(`Sum of even positive elements: ${evenPositiveSum}`);
+console.log(`Sum of odd positive elements: ${oddPositiveSum}`);
+console.log(`Product of positive elements: ${positiveProduct}`);
+console.log(`Array with only the maximum element kept:`, onlyMaxArray);
