@@ -1,30 +1,39 @@
-'use strict'
+'use strict';
 
-function variableScopeVisibility() {
-  for (let i = 0; i < 1; i++) {
-    var varVariable = "Variable var";
-    let letVariable = "Variable let";
-    const constVariable = "Variable const";
+const fs = require('fs');
+const path = require('path');
+const PATH_JSON_USER = path.join(__dirname, 'users.json');
 
-    // Inside loop, all variables are accessible scope of visibility
-    console.log("varVariable:", varVariable);
-    console.log("letVariable:", letVariable);
-    console.log("constVariable:", constVariable);
+const processUsers = () => {
+  try {
+    const data = fs.readFileSync(PATH_JSON_USER, 'utf8');
+    const usersArray = JSON.parse(data);
+
+    let totalBalance = 0;
+    const phones = [];
+    const usersMap = {};
+
+    usersArray.forEach(({ phone, balance, ...remainder }) => {
+      if (!phone || !balance) return;
+
+      const numericBalance = parseFloat(balance.replace(/[$,]/g, ''));
+      if (isNaN(numericBalance)) return;
+
+      totalBalance += numericBalance;
+      if (numericBalance > 2000) {
+          phones.push(phone);
+      }
+
+      usersMap[phone] = { balance: numericBalance, ...remainder };
+    });
+
+    console.log(`number of phone with balance over $2000 : ${phones.join(', ')}`);
+    console.log( `Total balance all users : $${totalBalance.toFixed(2)}`);
+
+    return usersMap;
+  } catch (error) {
+    console.error('Error processing users:', error.message);
   }
+};
 
-  /*
-    Outside loop
-    var is hoisted and initialized with undefined, so it's accessible,
-    and Temporal Dead Zone doesn't work for it
-  */
-  console.log("varVariable: ", varVariable);
-
- /*
-      let and const are hoisted too, but they remain in the Temporal Dead Zone
-      until their actual declaration line is executed.
-  */
-  console.log("letVariable: ", letVariable);
-  console.log("constVariable: ", constVariable);
-}
-
-variableScopeVisibility();
+processUsers();
