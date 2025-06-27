@@ -2,8 +2,9 @@
 
 const fs = require('fs');
 const path = require('path');
-const PATH_JSON_USER = path.join(__dirname, 'users.json');
+const PATH_JSON_USER = path.join(__dirname, 'json', 'users.json');
 
+//function is filtered phone numbers over 2000 and calculate users' total balance
 const processUsers = () => {
   try {
     const data = fs.readFileSync(PATH_JSON_USER, 'utf8');
