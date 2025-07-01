@@ -1,7 +1,9 @@
 # FE-HomeWork
 
-## Home_Work_29
+## Home_Work_31
 ## Tasks Overview
 
-### Given an array of objects. Output an array of phone numbers of users whose balance is more than 2000 dollars. And find the sum of all user balances
-
+###  Write your own implementation of the bind and apply functions
+#### Write your own implementation of the apply function
+#### Write your own implementation of the bind function
+#### When implementing the bind function, it is forbidden to use the call and apply methods
