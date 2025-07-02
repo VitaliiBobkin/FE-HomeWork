@@ -1,0 +1,47 @@
+/* styles.css */
+:root {
+    --color-bg:           #ffffff;
+    --color-surface:      #f6f7f8;
+    --color-text:         #181818;
+    --color-text-muted:   #555;
+    --color-primary:      #0066ff;
+    --color-primary-fore: #ffffff;
+}
+
+body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-family: system-ui, sans-serif;
+    background: var(--color-bg);
+    color: var(--color-text);
+    transition: background 0.5s, color 0.5s;
+}
+
+button   {
+    margin: 10px;
+    padding: 12px 8px;
+    background: var(--color-primary);
+    color: var(--color-primary-fore);
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background 0.3s;
+}
+button:hover { opacity: 1; }
+
+/* --- dark-theme----- */
+body.dark-theme {
+    --color-bg:           #181a1b;
+    --color-surface:      #222425;
+    --color-text:         #f1f1f1;
+    --color-text-muted:   #a3a3a3;
+    --color-primary:      #4d8dff;
+    --color-primary-fore: #000000;
+}
+
+
+
