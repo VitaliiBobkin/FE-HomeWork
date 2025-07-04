@@ -1,9 +1,26 @@
 'use strict';
 
-const body = document.body;
-const btn = document.getElementById('toggle-theme');
+const filterSelect = document.getElementById('filter');
+const cards = document.querySelectorAll('.card');
 
-btn.addEventListener('click', (event) => {
-  const enabled = body.classList.toggle("dark-theme");
-  event.currentTarget.textContent = enabled ? 'Set light theme' : 'Set dark theme';
-});
+filterSelect.addEventListener('change', () => {
+  const selectedCategory = filterSelect.value;
+
+  console.log(selectedCategory);
+
+  cards.forEach(card => {
+    const category = card.dataset.category;
+    console.log(category);
+
+    switch (selectedCategory) {
+      case 'all':
+        card.style.display = '';
+        break;
+      case category:
+        card.style.display = '';
+        break;
+      default:
+        card.style.display = 'none';
+    }
+  });
+})

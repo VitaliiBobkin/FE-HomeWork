@@ -1,9 +1,8 @@
 # FE-HomeWork
 
-## Home_Work_33
+## Home_Work_34
 ## Tasks Overview
 
-###  Toggle site theme
-#### 1. Find button
-#### 2. Hang click event handler
-#### 3. Add/remove dark-theme class from body
+###  Filter cards by category
+#### React to change in select
+#### Iterate over card and hide/show depending on data-category

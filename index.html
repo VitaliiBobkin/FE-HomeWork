@@ -7,9 +7,19 @@
     <link rel="stylesheet" href="css/styles.css" />
 </head>
 <body>
-    <h1>Hello World!</h1>
 
-    <button id="toggle-theme" class="btn">Switch theme</button>
+    <label>
+        Filter:
+        <select id="filter">
+            <option value="all">All</option>
+            <option value="fruit">Fruits</option>
+            <option value="vegetable">Vegetables</option>
+        </select>
+    </label>
+
+    <div class="card" data-category="fruit">🍎 Apple</div>
+    <div class="card" data-category="vegetable">🥕 Carrot</div>
+    <div class="card" data-category="fruit">🍌 Bananas</div>
 
     <script src="js/index.js" defer></script>
 </body>

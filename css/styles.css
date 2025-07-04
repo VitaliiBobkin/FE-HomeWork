@@ -43,5 +43,32 @@ body.dark-theme {
     --color-primary-fore: #000000;
 }
 
+label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: system-ui, sans-serif;
+    font-size: 16px;
+    color: #333;
+    user-select: none;
+}
+
+select {
+    padding: 6px 12px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: white;
+    cursor: pointer;
+    transition: border-color 0.2s ease-in-out;
+}
+
+select:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 4px var(--color-text);
+}
+
+
 
 
