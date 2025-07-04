@@ -6,12 +6,8 @@ const cards = document.querySelectorAll('.card');
 filterSelect.addEventListener('change', () => {
   const selectedCategory = filterSelect.value;
 
-  console.log(selectedCategory);
-
   cards.forEach(card => {
     const category = card.dataset.category;
-    console.log(category);
-
     switch (selectedCategory) {
       case 'all':
         card.style.display = '';
