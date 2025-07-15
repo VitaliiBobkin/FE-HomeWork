@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <title>Create Products</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="p-4">
+
+<h2>Create Product</h2>
+
+<form id="productForm">
+  <div class="mb-3">
+    <label class="form-label" for="title">Name</label>
+    <input type="text" name="title" id="title" class="form-control" required>
+  </div>
+  <div class="mb-3">
+    <label class="form-label" for="description">Description</label>
+    <textarea name="description" id="description" class="form-control" required></textarea>
+  </div>
+  <div class="mb-3">
+    <label class="form-label" for="price">Price</label>
+    <input type="number" name="price" id="price" class="form-control" required min="0">
+  </div>
+  <button type="submit" class="btn btn-success">Create</button>
+</form>
+
+<script src="/model/productModel.js"></script>
+<script src="/view/productFormView.js"></script>
+<script src="/controller/createController.js"></script>
+
+</body>
+</html>
