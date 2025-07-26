@@ -2,7 +2,7 @@
   "name": "yes",
   "version": "1.0.0",
   "description": "home work",
-  "main": "src/js/index.js",
+  "main": "src/js/controller/index.js",
   "scripts": {
     "test": "jest",
     "format": "prettier --write .",
