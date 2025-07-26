@@ -1,39 +1,16 @@
 # FE-HomeWork
 
-## Home_Work_36
+## Home_Work_38
 ## Tasks Overview
 
-Need to implement **3 separate pages** for managing products using HTML, bootstrap, and JavaScript with localStorage.
-
----
+## Need to make a constructor for the entity "Student".
 
 ###  Pages Description
 
-#### 1. `create.html` – Create Product Page
-- A form with:
-    - Product Name
-    - Description
-    - Price
-- Input validation must be performed.
-- On clicking the **Create** button:
-    - If inputs are valid:
-        - Save the product in `localStorage`
-        - Redirect to the product list page `list.html`
+#### 1. A student has a first name, last name, year of birth - these are properties. There is an array with grades, this is also a property. And there is an opportunity to get the student's age and his average grade - these are methods.
 
-#### 2. `list.html` – Product List Page
-- Displays a table of all products:
-    - Columns: ID, Name, Price
-    - Buttons: **Edit** and **Delete**
-- Products are shown with the **newest at the top**.
-- On clicking the **Edit** button:
-    - Save the product’s ID into `localStorage` under the key `selectedProductID`
-    - Redirect to the `edit.html` page
+#### 2. All Students also have an array of the same length, it has 25 elements, initially it is not filled, but for 25 elements. This is an array in which attendance is noted, every time we call the .present() method on the next empty place, true is written to the array, when we call .absent() - false is written. Provide any protection against the fact that there cannot be more than 25 records in the attendance array. The array is a property, present and absent are methods.
 
-#### 3. `edit.html` – Edit Product Page
-- Same form as `create.html`
-- On load:
-    - Read `selectedProductID` from `localStorage`
-    - Pre-fill the form fields with the selected product's data
-- On clicking the **Save** button:
-    - Update the existing product in the product array in `localStorage`
-    - Redirect back to `list.html`
+#### 3.The last method: .summary(), checks the average grade and average attendance (number of Visits/number of Classes), and if the average grade is greater than 90 and the average attendance is greater than 0.9, then the summary method returns the string "Well done!", if one of these values is less, then - "Good, but you can do better", if both are lower - "Radish!".
+
+#### 4. Don't forget to create 2-3 instances (of specific students) after you write this constructor and show the use of these methods.
