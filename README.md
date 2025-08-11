@@ -1,12 +1,15 @@
 # FE-HomeWork
 
-## Home_Work_43
+## Home_Work_46
 ## Tasks Overview
 
-## Goal: combining location, DOM, classes, and working with history.
+## Goal: To gain a deeper understanding of the window.location properties and parse the URL into its parts.
 
-1. Implement a navigation menu (HTML) with three links: /home, /about, /contact.
-   Create a Navigation class that:
-2. Tracks window.location.pathname.
-   Adds the CSS class "active" to the corresponding menu item.
-   Responds to popstate and manually changes the URL on click (via pushState).
+**Requirements:**
+   Create a URLParser class with a constructor that accepts the full URL.
+
+**Add getters:**
+   protocol → returns http: or https:
+   hostname → returns the domain
+   path → returns the path (/products/item)
+   queryParams → returns an object with query parameters ({ search: "book", page: "2" })
