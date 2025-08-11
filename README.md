@@ -3,13 +3,10 @@
 ## Home_Work_43
 ## Tasks Overview
 
-## Class for working with history of transitions (HistoryTracker)
+## Goal: combining location, DOM, classes, and working with history.
 
-1. Create a HistoryTracker class that:
-   Stores a list of visited URLs in an array.
-   Has methods:
-   push(url) — adds an entry via pushState and stores it in history.
-   back() — goes to the previous page via history.back().
-
-**Additionally:**
-   Use the popstate event to log the history of navigation.
+1. Implement a navigation menu (HTML) with three links: /home, /about, /contact.
+   Create a Navigation class that:
+2. Tracks window.location.pathname.
+   Adds the CSS class "active" to the corresponding menu item.
+   Responds to popstate and manually changes the URL on click (via pushState).
