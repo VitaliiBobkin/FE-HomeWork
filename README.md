@@ -1,19 +1,14 @@
 # FE-HomeWork
 
-## Home_Work_49
+## Home_Work_50
 ## Tasks Overview
 
-## TASK: Simulating events via setTimeout with subscription (pub/sub) — without Promises and async/await
+## TASK: Fake api - function fetchUserData(userId), which returns a promise with user data (emulating an API request).
 
-Goal: to implement the simplest event bus (Event Bus) in the browser, which can subscribe to events, unsubscribe and emit events asynchronously via setTimeout.
+Goal: **You need to write a function getUsersData(userIds), which:**
 
-Restrictions:
+1. Takes an array of userIds.
 
-Browser JavaScript only.
-Prohibited: Promises, async/await, third-party libraries.
-Allowed: setTimeout, DOM events for manual inspection.
-Interface to be implemented:
+2. Returns a promise that resolves to an array of user objects.
 
-*on(topic: string, handler: (payload:any) => void): () => void — subscription, returns an unsubscribe function.*
-*emit(topic: string, payload?: any, delay = 0): void — asynchronous emission via setTimeout with a specified delay.*
-*off(topic: string, handler: Function): void — unsubscribe.*
+3. If at least one request fails, the result should be an array of successful responses and an array of errors.
