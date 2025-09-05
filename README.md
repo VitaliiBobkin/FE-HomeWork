@@ -1,9 +1,10 @@
 # FE-HomeWork
 
-## Home_Work_50
+## Home_Work_52
 ## Tasks Overview
 
 ## TASK: Fake api - function fetchUserData(userId), which returns a promise with user data (emulating an API request).
+## use Async and Await.
 
 Goal: **You need to write a function getUsersData(userIds), which:**
 
