@@ -1,13 +1,10 @@
 # FE-HomeWork
 
-## Home_Work_57
+## Home_Work_56
 ## Tasks Overview
 
-## TASK: The application should consist of three blocks:
+## TASK: The page displays a list of emoticons and a click counter for each
 
-1. Header;
-2. Left side navigation;
-3. Central container.
-### The content inside the blocks is arbitrary
+### Below is a “Show Results” button that displays the winning emoticon based on the number of votes
 
 
