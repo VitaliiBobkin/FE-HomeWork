@@ -20,10 +20,11 @@
   },
   "homepage": "https://github.com/VitaliiBobkin/FE-HomeWork#readme",
   "dependencies": {
+    "bootstrap": "^5.3.8",
     "core-js": "^3.43.0",
     "lodash": "^4.17.21",
-    "react": "^19.1.0",
-    "react-dom": "^19.1.0",
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1",
     "regenerator-runtime": "^0.14.1"
   },
   "devDependencies": {
