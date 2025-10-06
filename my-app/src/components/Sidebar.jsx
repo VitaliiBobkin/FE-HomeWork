@@ -1,16 +1,26 @@
-const Sidebar = () => {
+const Sidebar = ({ onNavigate, currentPage }) => {
+  const navItems = ['Dashboard', 'Profile', 'Settings'];
+
   return (
-    <div className="bg-light border-end vh-100 p-3" style={{ width: "200px" }}>
-      <ul className="nav flex-column">
-        <li className="nav-item">
-          <a className="nav-link active" href="#">Dashboard</a>
-        </li>
-        <li className="nav-item">
-          <a className="nav-link" href="#">Profile</a>
-        </li>
-        <li className="nav-item">
-          <a className="nav-link" href="#">Settings</a>
-        </li>
+    <div
+      className="bg-light border-end flex-shrink-0"
+      style={{ width: '250px' }}
+    >
+      <ul className="nav flex-column p-3">
+        {navItems.map((item) => (
+          <li className="nav-item" key={item}>
+            <a
+              className={`nav-link ${currentPage === item ? 'active text-white bg-primary' : 'text-dark'}`}
+              href="#"
+              onClick={(e) => {
+                e.preventDefault();
+                onNavigate(item);
+              }}
+            >
+              {item}
+            </a>
+          </li>
+        ))}
       </ul>
     </div>
   );
