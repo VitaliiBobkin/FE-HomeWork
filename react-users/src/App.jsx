@@ -1,30 +1,27 @@
 import React, { useState } from "react";
-import { Container, Row, Col } from "react-bootstrap";
-import "bootstrap/dist/css/bootstrap.min.css";
-import UserForm from "./components/UserForm.jsx";
-import UserList from "./components/UserList.jsx";
+import ClassTimer from "./components/ClassTimer.jsx";
+import FuncTimer from "./components/FuncTimer.jsx";
 
 function App() {
-  const [users, setUsers] = useState([]);
-
-  const addUser = (user) => {
-    setUsers([...users, user]);
-  };
+  const [showClassTimer, setShowClassTimer] = useState(true);
+  const [showFuncTimer, setShowFuncTimer] = useState(true);
 
   return (
-    <Container className="mt-4">
-      <Row>
-        <Col md={4}>
-          <h3>Add User</h3>
-          <UserForm addUser={addUser} />
-        </Col>
+    <div>
+      <h1>Timers Demo</h1>
 
-        <Col md={8}>
-          <h3>Users List</h3>
-          <UserList users={users} />
-        </Col>
-      </Row>
-    </Container>
+      <h2>Class Timer</h2>
+      {showClassTimer && (
+        <ClassTimer onUnmount={() => setShowClassTimer(false)} />
+      )}
+      {!showClassTimer && <button onClick={() => setShowClassTimer(true)}>Mount Class Timer</button>}
+
+      <h2>Function Timer</h2>
+      {showFuncTimer && (
+        <FuncTimer onUnmount={() => setShowFuncTimer(false)} />
+      )}
+      {!showFuncTimer && <button onClick={() => setShowFuncTimer(true)}>Mount Func Timer</button>}
+    </div>
   );
 }
 
