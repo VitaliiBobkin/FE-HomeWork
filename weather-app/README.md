@@ -1,16 +1,36 @@
-# React + Vite
+# FE-HomeWork
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Home_Work_61
+## Tasks Overview
 
-Currently, two official plugins are available:
+## TASK: Create a small application that shows the weather for the entered city, with the ability to add the city to “favorites”.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### Main functionality
+City search
+Input for entering the city name.
+After clicking the “Search” button — the weather is loaded via the API.
+If the city is not found — show an error message.
+Weather display
+City name, country.
+Current temperature, wind, weather description.
+Forecast for several days (min/max temperature).
+Favorites
+Button “Add to favorites” / “Delete”.
+Favorite cities are stored in localStorage.
+You can quickly click on the selected city to update the weather.
+API (without key)
+1. Geocoding (city search): https://geocoding-api.open-meteo.com/v1/search?name={CITY}&count=1&language=uk
 
-## React Compiler
+2. Weather: https://api.open-meteo.com/v1/forecast?latitude={LAT}&longitude={LON}&current_weather=true&daily=temperature_2m_max,temperature_2m_min&timezone=auto
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Components
+<App /> — main component
+<SearchBar /> — input and search button
+<WeatherCard /> — shows weather for current city
+<FavoritesList /> — list of favorite cities
+Use
+React Hooks: useState, useEffect
+Working with API: fetch
+Saving in localStorage
+Conditional rendering (Loading / Error / Empty)
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
