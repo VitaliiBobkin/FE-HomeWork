@@ -1,0 +1,66 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #eef1f6;
+}
+
+.app-container {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    padding: 2rem;
+}
+
+.content {
+    width: 600px;
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.search-bar {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.search-bar input {
+    flex: 1;
+    padding: 0.5rem;
+}
+
+.search-bar button {
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+}
+
+.weather-card {
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 1rem;
+    margin-top: 1rem;
+}
+
+.weather-card button {
+    margin-top: 1rem;
+    cursor: pointer;
+}
+
+/* Список обраних */
+.favorites ul {
+    list-style: none;
+    padding: 0;
+}
+
+.favorites li button {
+    background: none;
+    border: none;
+    color: #007bff;
+    cursor: pointer;
+}
+
+/* Залежно від погоди */
+.sunny { background: linear-gradient(to top, #ffe082, #fff8e1); }
+.cloudy { background: linear-gradient(to top, #cfd8dc, #eceff1); }
+.rainy { background: linear-gradient(to top, #90caf9, #e3f2fd); }
